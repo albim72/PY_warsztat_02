@@ -19,3 +19,16 @@ print(gx(5,2,6,3)**2 - 5)
 #przykład3
 
 rank_list("Python","Java","C#","C++",nrrank=54)
+
+#przykład4
+
+def miasta_sort(miasta:list) -> list:
+    miasta.sort(reverse=True)
+
+def miasta(miasta,nrrank):
+    print(f"miasta: 1. {miasta[0]} 2. {miasta[1]} 3. {miasta[2]}")
+
+mst = ["Warszawa","Krakow","Poznan"]
+miasta_sort(mst)
+print(mst)
+miasta(mst,54)
