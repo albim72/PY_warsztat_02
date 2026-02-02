@@ -46,3 +46,27 @@ def multi(n):
 print(multi(8)(10))
 print(multi(2)(10))
 
+
+def licz(a):
+    return a
+
+d = multi(2)
+print(d(10))
+
+
+def dodawanie(funkcja,a,b):
+    return funkcja(a)+funkcja(b)
+
+def pw(n):
+    return n**2
+
+b = dodawanie(pw,5,8)
+print(b)
+
+c = dodawanie
+
+print(c)
+print(c(pw,5,8))
+
+#przyklad3
+liczby = [45,2,5,256,34,222,42,-345,-23,56,789,34,43]
