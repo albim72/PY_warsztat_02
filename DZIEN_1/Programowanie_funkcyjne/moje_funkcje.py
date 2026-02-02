@@ -89,3 +89,32 @@ print(laprz)
 
 npcube = npliczby**3
 print(npcube)
+
+#funkcja w typie dekoratora
+def startstop(funkcja):
+    def wrapper(*args,**kwargs):
+        print("start funkcji...")
+        funkcja(*args,**kwargs)
+        print("stop....")
+    return wrapper
+
+def zawijanie(czego):
+    print(f"zawijanie {czego} w sreberka...")
+
+print("_"*70)
+
+zawijanie("cukierków")
+
+print("_"*70)
+
+zw = startstop(zawijanie)
+zw("czekoladek")
+
+print("_"*70)
+
+@startstop
+def dmuchanie(czego):
+    print(f"dmuchanie {czego}...na urodziny")
+
+dmuchanie("świeczek")
+dmuchanie("baloników")
