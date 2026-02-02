@@ -1,34 +1,48 @@
-from funkcja_no2 import gx,rank_list
+# przykład 1  - funkcje wyższego rzędu
+def witaj(imie):
+    return f"witaj {imie}!"
 
-#przykład 1
-n = 100
-def policz(a:int,b:int,c:float,y:int=100) -> float:
-    global n
-    n = (a+b)*gx(a,b,c,y) + n
-    return n
+def konkurs(imie,miejsce,punkty):
+    return f"uczestnik konkursu: {imie}, miejsce: {miejsce}, punkty: {punkty}"
 
-print(policz(1,2,3))
-print(policz(7,5,8.2,66))
-print(policz(23,6.23,True,12))
-print(policz(2,8,3,-3))
+def bonus(punkty):
+    if punkty > 50:
+        bn = punkty+10
+    else:
+        bn = punkty
+    return f'liczba punktów z bonusem: {bn}'
 
-#przykład2
+def multiosoba(*args):
+    return f"opublikowane wyniki konkursu! {bonus(args[1])}, {konkurs(*args)}"
 
-print(gx(5,2,6,3)**2 - 5)
 
-#przykład3
+#funkcja wyższego rzędu
+def osoba(funkcja,*args):
+    return funkcja(*args)
 
-rank_list("Python","Java","C#","C++",nrrank=54)
+print(osoba(witaj,"Jan"))
+print(osoba(konkurs,"Aga",34,45))
+print(osoba(multiosoba,"Jan",70,45))
 
-#przykład4
+# przykład 2 - funkcje anonimowe
+print((lambda f:f*2-3)(6))
 
-def miasta_sort(miasta:list) -> list:
-    miasta.sort(reverse=True)
+b = lambda u,w:u+101*w
+print(b(11,3))
+print(b(45,2))
 
-def miasta(miasta,nrrank):
-    print(f"miasta: 1. {miasta[0]} 2. {miasta[1]} 3. {miasta[2]}")
+print(b)
 
-mst = ["Warszawa","Krakow","Poznan"]
-miasta_sort(mst)
-print(mst)
-miasta(mst,54)
+def b(u,w):
+    return u+101*w
+
+print(b(11,3))
+print(b(45,2))
+print(b)
+
+def multi(n):
+    return lambda a:a*n
+
+print(multi(8)(10))
+print(multi(2)(10))
+
