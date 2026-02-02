@@ -70,3 +70,22 @@ print(c(pw,5,8))
 
 #przyklad3
 liczby = [45,2,5,256,34,222,42,-345,-23,56,789,34,43]
+
+liczby_parz = list(filter(lambda x:x%2==0,liczby))
+print(liczby_parz)
+
+cube = list(map(lambda x:x**3,liczby))
+print(cube)
+
+import numpy as np
+
+npliczby = np.array(liczby)
+
+print(type(liczby))
+print(type(npliczby))
+
+laprz = npliczby[npliczby%2==0]
+print(laprz)
+
+npcube = npliczby**3
+print(npcube)
