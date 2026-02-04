@@ -1,0 +1,10 @@
+{
+    "name": "Anna",
+    "skills": [
+        "Python",
+        "C++",
+        "Java",
+        "AI"
+    ],
+    "active": true
+}
