@@ -15,10 +15,10 @@ Uruchom:
 # MIXINY – POJEDYNCZE CECHY
 # =========================
 
-class LogMixin:
+class LogMixin(object):
     def process(self, data):
         print("[LOG] start")
-        result = super().process(data)
+        result = super().process(data) #type(self).mro
         print("[LOG] end")
         return result
 
@@ -77,11 +77,19 @@ def main():
     print("\n=== Drugie wywołanie (cache) ===")
     print("Wynik:", p.process(10))
 
-    print("\n=== Próba błędnych danych ===")
-    try:
-        p.process("x")
-    except ValueError as e:
-        print("Błąd:", e)
+    # print("\n=== Próba błędnych danych ===")
+    # try:
+    #     p.process("x")
+    # except ValueError as e:
+    #     print("Błąd:", e)
+
+    p.process(23)
+    p.process(111)
+
+    #GŁÓWNA LOGIKA BIZNESOWA - CoreProcessor
+    print(p.process(21))
+    p.process(21)
+    p.process(34)
 
     print("\n=== MRO (Method Resolution Order) ===")
     for cls in Processor.__mro__:
