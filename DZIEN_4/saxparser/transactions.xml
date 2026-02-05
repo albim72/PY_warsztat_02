@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transactions>
+  <transaction id="T001">
+    <category>food</category>
+    <amount currency="PLN">19.99</amount>
+  </transaction>
+  <transaction id="T002">
+    <category>fuel</category>
+    <amount currency="PLN">180.00</amount>
+  </transaction>
+</transactions>
