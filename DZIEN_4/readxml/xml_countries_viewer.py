@@ -8,7 +8,7 @@ Czyta plik XML z krajami i pokazuje:
 Uruchomienie:
     python xml_countries_viewer.py /ścieżka/do/pliku.xml
 
-Jeśli nie podasz ścieżki, program użyje: kraj(1).xml (jeśli istnieje obok skryptu).
+Jeśli nie podasz ścieżki, program użyje: kraj.xml (jeśli istnieje obok skryptu).
 """
 
 from __future__ import annotations
@@ -92,9 +92,9 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    # Domyślna ścieżka: plik 'kraj(1).xml' obok skryptu, jeśli użytkownik nie poda argumentu
+    # Domyślna ścieżka: plik 'kraj.xml' obok skryptu, jeśli użytkownik nie poda argumentu
     script_dir = Path(__file__).resolve().parent
-    default_xml = script_dir / "kraj(1).xml"
+    default_xml = script_dir / "kraj.xml"
 
     xml_file = Path(args.xml_path).expanduser().resolve() if args.xml_path else default_xml
 
@@ -113,6 +113,7 @@ def main() -> None:
     print("\n=== DATAFRAME (wiersz = country) ===")
     # print(df) pokazuje całą ramkę w konsoli
     print(df.to_string())
+    df.to_html("countries.html")
 
 
 if __name__ == "__main__":
